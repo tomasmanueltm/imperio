@@ -33,11 +33,66 @@
   display: flex;
 }
 
+.scrollTop {
+  z-index: 1;
+  right: 1rem;
+  width: 30px;
+  height: 35px;
+  bottom: 1rem;
+  padding: 5px;
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #feb101;
+}
+
+.scrollTop svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.scrollTop.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.scrollTop:hover {
+  color: #feb101;
+  background: #000;
+}
+
+.h1 {
+  margin: 0 auto;
+  display: block;
+  font-weight: 900;
+}
+
+.h1.center {
+  text-align: center;
+}
+
+.h1.after::after {
+  width: 5%;
+  height: .4px;
+  content: "";
+  padding: 1px;
+  display: block;
+  border-radius: 10px;
+  margin: 0.5rem auto 0;
+  background: #feb101;
+}
+
 .header-index {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 2rem;
+  padding: 2rem 4rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -46,22 +101,49 @@
           justify-content: space-between;
 }
 
-.header-ul {
+@media (max-width: 765px) {
+  .header-index {
+    padding: 2rem;
+  }
+}
+
+.header-index h1 {
+  color: #feb101;
+  font-family: BebasNeue;
+}
+
+.header-index .header-ul {
   display: block;
 }
 
-.header-ul li {
+.header-index .header-ul li {
+  cursor: pointer;
   margin: 0 0 0 1rem;
   display: inline-block;
 }
 
+.header-index .header-ul li:hover {
+  color: #feb101;
+}
+
+.header-index .header-ul li:last-child {
+  padding: 0.5rem 2rem;
+  border-radius: 30px;
+  border: 1px solid #feb101;
+}
+
+.header-index .header-ul li:last-child:hover {
+  color: #fff;
+  background: #feb101;
+}
+
 @media (max-width: 765px) {
-  .header-ul {
+  .header-index .header-ul {
     display: none;
   }
 }
 
-.header-button {
+.header-index .header-button {
   display: none;
   z-index: 3;
   left: .8rem;
@@ -81,7 +163,7 @@
           justify-content: center;
 }
 
-.header-button svg {
+.header-index .header-button svg {
   top: 2px;
   left: -3px;
   z-index: -1;
@@ -90,14 +172,200 @@
   position: relative;
 }
 
-.header-button svg path {
+.header-index .header-button svg path {
   width: 100%;
   height: 100%;
 }
 
 @media (max-width: 765px) {
-  .header-button {
+  .header-index .header-button {
     display: block;
   }
+}
+
+.section-sobre {
+  display: block;
+  padding: 4rem 4rem 2rem;
+}
+
+@media (max-width: 765px) {
+  .section-sobre {
+    padding: 4rem 2rem 0px;
+  }
+}
+
+.section-sobre .section-sobre-lista {
+  display: -ms-grid;
+  display: grid;
+  padding: 2rem 0px;
+  -ms-grid-columns: (minmax(420px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-gap: 1.5rem;
+}
+
+@media (max-width: 765px) {
+  .section-sobre .section-sobre-lista {
+    padding: 4rem 0rem !important;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.section-sobre .section-sobre-lista li {
+  border-radius: 5px;
+  padding: 1rem 1.2rem;
+  cursor: context-menu;
+  border: 1px solid #9999;
+}
+
+.section-sobre .section-sobre-lista li:hover, .section-sobre .section-sobre-lista li.active {
+  background: #feb101;
+  border-color: transparent;
+}
+
+.section-sobre .section-sobre-lista li:hover h3, .section-sobre .section-sobre-lista li.active h3 {
+  color: #fff;
+}
+
+.section-sobre .section-sobre-lista li h3 {
+  color: #feb101;
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding: 0 0 0.5rem;
+}
+
+.section-sobre .section-sobre-lista li p {
+  font-size: 11.5pt;
+  line-height: 1.5rem;
+  text-align: justify;
+}
+
+@media (max-width: 465px) {
+  .section-sobre .section-sobre-lista li {
+    border: none;
+    text-align: center;
+  }
+  .section-sobre .section-sobre-lista li p {
+    text-align: center;
+  }
+}
+
+.section-servicos {
+  display: block;
+  padding: 4rem 4rem 3rem;
+}
+
+@media (max-width: 765px) {
+  .section-servicos {
+    padding: 4rem 2rem 2rem;
+  }
+}
+
+.section-servicos .section-servicos-lista {
+  display: -ms-grid;
+  display: grid;
+  padding: 2rem 0px;
+  -ms-grid-columns: (minmax(420px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-gap: 1.5rem;
+}
+
+@media (max-width: 765px) {
+  .section-servicos .section-servicos-lista {
+    padding: 4rem 0rem !important;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.section-servicos .section-servicos-lista li {
+  height: 230px;
+  padding: 1rem;
+  position: relative;
+  border-radius: 5px;
+  cursor: context-menu;
+  border: 1px solid #9999;
+}
+
+.section-servicos .section-servicos-lista li:hover {
+  background: #feb101;
+  border-color: transparent;
+}
+
+.section-servicos .section-servicos-lista li:hover h3 {
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.section-servicos .section-servicos-lista li h3 {
+  color: #feb101;
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding: 0 0 0.3rem;
+}
+
+.section-servicos .section-servicos-lista li p {
+  font-size: 11.5pt;
+  text-align: justify;
+  line-height: 1.5rem;
+}
+
+.section-servicos .section-servicos-lista li.li {
+  top: 5rem;
+}
+
+@media (max-width: 952px) {
+  .section-servicos .section-servicos-lista li.li {
+    top: unset;
+  }
+}
+
+.section-empresa {
+  display: block;
+  padding: 4rem 4rem 2rem;
+}
+
+@media (max-width: 765px) {
+  .section-empresa {
+    padding: 4rem 2rem 2rem;
+  }
+}
+
+.section-empresa div.descricao {
+  -webkit-columns: 2;
+          columns: 2;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  padding: 3rem 0 0;
+  text-align: justify;
+  line-height: 1.6rem;
+}
+
+@media (max-width: 765px) {
+  .section-empresa div.descricao {
+    -webkit-columns: 1;
+            columns: 1;
+  }
+  .section-empresa div.descricao p {
+    margin: 0 0 1rem;
+  }
+}
+
+.footer-index {
+  clear: both;
+  margin: 2rem 0 0;
+  background: #333;
+  padding: 1.5rem 4rem;
+}
+
+.footer-index .header-footer {
+  padding: 1rem;
+}
+
+.footer-index span.copy {
+  color: #fff;
+  font-size: 12pt;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=index.css.map */
