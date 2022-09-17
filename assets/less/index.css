@@ -325,8 +325,14 @@ aside.container {
 }
 
 .section-eventos {
-  display: block;
-  padding: 4rem 4rem 3rem;
+  display: -ms-grid;
+  display: grid;
+  padding: 6rem 4rem 3rem;
+  -webkit-margin-before: 3rem;
+          margin-block-start: 3rem;
+  -ms-grid-columns: .6fr 1fr;
+      grid-template-columns: .6fr 1fr;
+  grid-gap: 2rem;
 }
 
 @media (max-width: 765px) {
@@ -335,40 +341,53 @@ aside.container {
   }
 }
 
-.section-eventos .section-eventos-lista {
-  display: -ms-grid;
-  display: grid;
-  padding: 2rem 0px;
-  -ms-grid-columns: (minmax(320px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 1.5rem;
-}
-
-@media (max-width: 765px) {
-  .section-eventos .section-eventos-lista {
-    padding: 4rem 0rem !important;
+@media (max-width: 565px) {
+  .section-eventos {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
 }
 
-.section-eventos .section-eventos-lista li {
-  height: 230px;
-  padding: 1rem;
-  position: relative;
-  border-radius: 5px;
-  cursor: context-menu;
-  border: 1px solid #9999;
+.section-eventos .eventoLegenda {
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 3rem;
+  background: #ffb815;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: 3px solid #000;
 }
 
-.section-eventos .section-eventos-lista li:hover {
-  background: #feb101;
-  border-color: transparent;
+@media (max-width: 565px) {
+  .section-eventos .eventoLegenda {
+    -webkit-margin-after: 2rem;
+            margin-block-end: 2rem;
+  }
 }
 
-.section-eventos .section-eventos-lista li:hover h3 {
+.section-eventos .eventoLegenda h1 {
+  margin: 0px;
+  font-weight: bold;
+  font-size: 2.5rem;
+  padding: 0 0 .5rem;
+}
+
+.section-eventos .eventoLegenda p {
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
+}
+
+.section-eventos .section-eventos-lista li {
+  position: relative;
+  padding: 0px 0 2rem 1rem;
+  border-left: 1px solid #9999;
 }
 
 .section-eventos .section-eventos-lista li h2 {
@@ -385,20 +404,29 @@ aside.container {
 }
 
 .section-eventos .section-eventos-lista li span {
-  top: 1rem;
-  right: 1rem;
-  font-size: .8rem;
+  top: -5px;
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative;
+  font-family: BebasNeue;
+}
+
+.section-eventos .section-eventos-lista li::before {
+  top: 0px;
+  width: 5px;
+  height: 5px;
+  left: -.4rem;
+  content: "";
+  padding: 3px;
+  display: inline;
   position: absolute;
+  border-radius: 50%;
+  background: #feb101;
 }
 
-.section-eventos .section-eventos-lista li.li {
-  top: 5rem;
-}
-
-@media (max-width: 952px) {
-  .section-eventos .section-eventos-lista li.li {
-    top: unset;
-  }
+.section-eventos .section-eventos-lista li:last-child {
+  border-left: none;
+  padding: 0px 0 0 1rem;
 }
 
 .section-empresa {
