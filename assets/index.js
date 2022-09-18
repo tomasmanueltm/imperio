@@ -35,10 +35,10 @@ Object.values(ulLi.children).forEach(element => {
 const resolucaoView =  window.matchMedia("(max-width:765px)");
 resolucaoView.addEventListener("change", dispositivo)
 function dispositivo(e) {
-    if(e.matches == false && JQuery(".header-ul").classList.contains("on"))
+    if(e.matches == false && headerUlista.classList.contains("on"))
     {
-       JQuery(".header-ul").classList.remove("on");
-       pathIndex.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+        headerUlista.classList.remove("on");
+        pathIndex.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
     }
 }
 
@@ -48,10 +48,10 @@ addEventListener("scroll", function(e){
     (e.target.scrollingElement.scrollTop >= 85) ? headerIndex.classList.add("color") : headerIndex.classList.remove("color");
 
 
-    if(JQuery(".header-ul").classList.contains("on") == true)
+    if(headerUlista.classList.contains("on") == true)
     {
-        JQuery(".menu").classList.remove("on");
-        JQuery(".header-button").setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+        headerUlista.classList.remove("on");
+        headerButton.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
     }
 })
 
