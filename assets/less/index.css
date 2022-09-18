@@ -16,11 +16,12 @@
   font-weight: normal;
   text-decoration: none;
   font-family: Raleway;
+  scrollbar-width: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   scroll-behavior: smooth;
-  -webkit-transition: all .2s ease-out;
-  transition: all .2s ease-out;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
 }
 
 .w-100 {
@@ -35,10 +36,10 @@
 
 .scrollTop {
   z-index: 1;
-  right: 1rem;
   width: 30px;
   height: 35px;
   bottom: 1rem;
+  right: 1.5rem;
   padding: 5px;
   display: none;
   cursor: pointer;
@@ -289,6 +290,12 @@ aside.container {
   border-radius: 5px;
   cursor: context-menu;
   border: 1px solid #9999;
+  -webkit-transform: translateX(-300px);
+          transform: translateX(-300px);
+  -webkit-transition: -webkit-transform .5s ease-out;
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
 }
 
 .section-servicos .section-servicos-lista li:hover {
@@ -324,6 +331,20 @@ aside.container {
   }
 }
 
+.section-servicos .section-servicos-lista li:nth-child(even) {
+  -webkit-transform: translateX(300px);
+          transform: translateX(300px);
+}
+
+.section-servicos .section-servicos-lista li.observe {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+  -webkit-transition: -webkit-transform .5s ease-out;
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+}
+
 .section-eventos {
   display: -ms-grid;
   display: grid;
@@ -332,11 +353,12 @@ aside.container {
           margin-block-start: 3rem;
   -ms-grid-columns: .6fr 1fr;
       grid-template-columns: .6fr 1fr;
-  grid-gap: 2rem;
+  grid-gap: 3rem;
 }
 
 @media (max-width: 765px) {
   .section-eventos {
+    grid-gap: 2rem;
     padding: 4rem 2rem 2rem;
   }
 }
