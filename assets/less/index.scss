@@ -124,19 +124,28 @@
 
     h1
     {
-        color: #feb101;
+        color: #fff;
         font-family: BebasNeue;
     }
 
     &.color
     {
         background: #fff;
+
+        h1
+        {
+            color: #feb101;
+        }
     }
     
     .header-ul
     {
         display: block;
     
+        @media (max-width: 765px){
+            display: none;
+        }
+
         li
         {
             cursor: pointer;
@@ -161,9 +170,33 @@
                 }
             }
         }
-    
-        @media (max-width: 765px){
-            display: none;
+        &.on
+        {
+            top: 0px;
+            left: 0px;
+            width: 30%;
+            height: 100vh;
+            padding: 3rem;
+            position: absolute;
+            background: #fff;
+
+            li
+            {
+                display: block;
+                margin: 0 0 2rem 0;
+
+                &:last-child
+                {
+                    display: inline-block;
+                    border-color: #feb101;
+
+                    &:hover
+                    {
+                        color: #fff;
+                        background: #feb101;
+                    }
+                }
+            }
         }
     }
     
@@ -221,7 +254,7 @@ aside.container
         top: 0px;
         z-index: -1;
         left: 0px;
-        width: 50%;
+        width: 100%;
         content: "";
         height: 100%;
         position: absolute;
@@ -231,11 +264,11 @@ aside.container
     
 
 
-    @media (max-width: 765px) {
+    @media(max-width: 765px) {
         grid-gap: 2rem;
-        padding: 4rem 2rem;
         margin-block-end: 5rem;
         grid-template-columns: 1fr;
+        padding: 4rem 2rem!important;
 
         &::before
         {
@@ -249,13 +282,13 @@ aside.container
 
     .legenda
     {
-        max-width: 550px;
+        width: 550px;
         padding: 2rem 0;
 
-        @media (max-width: 765px)
+        @media(max-width: 765px)
         {
-            width: unset;
             text-align: center;
+            width: unset!important;
         }
 
         p
