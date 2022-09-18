@@ -1,11 +1,18 @@
-const scrollElement = document.querySelector(".scrollTop");
+let JQuery = (e)=> document.querySelector(e),
+scrollElement = JQuery(".scrollTop"),
+headerIndex = JQuery(".header-index");
+
+
+
 
 addEventListener("scroll", function(e){
     (e.target.scrollingElement.scrollTop >= 85) ? (scrollElement.classList.add("show")) : scrollElement.classList.remove("show");
+    (e.target.scrollingElement.scrollTop >= 85) ? headerIndex.classList.add("color") : headerIndex.classList.remove("color");
 })
 
 scrollElement.addEventListener("click", function(e){
-    document.getElementById("header").scrollIntoView();
+    document.getElementById("base").scrollIntoView();
+    headerIndex.classList.remove("color");
 })
 
 

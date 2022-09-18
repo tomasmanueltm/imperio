@@ -25,6 +25,7 @@
     transition: all .3s ease-out;
 }
 
+
 .w-100
 {
     width: 100%!important;
@@ -35,16 +36,24 @@
     display: flex;
 }
 
+.d-grid
+{
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+    grid-gap: 5rem;
+}
+
+
 // 
 .scrollTop
 {
     z-index: 1;
     width: 30px;
     height: 35px;
-    bottom: 1rem;
     right: 1.5rem;
     padding: 5px;
     display: none;
+    bottom: 1.5rem;
     cursor: pointer;
     position: fixed;
     background: #fff;
@@ -102,7 +111,9 @@
 
 .header-index
 {
+    z-index: 2;
     display: flex;
+    position: fixed;
     padding: 2rem 4rem;
     align-items: center;
     justify-content: space-between;
@@ -115,6 +126,11 @@
     {
         color: #feb101;
         font-family: BebasNeue;
+    }
+
+    &.color
+    {
+        background: #fff;
     }
     
     .header-ul
@@ -129,19 +145,19 @@
 
             &:hover
             {
-                color: #feb101;
+                color: #fff;
             }
 
             &:last-child
             {
                 padding: 0.5rem 2rem;
                 border-radius: 30px;
-                border: 1px solid #feb101;
+                border: 1px solid #fff;
 
                 &:hover
                 {
-                    color: #fff;
-                    background: #feb101;
+                    color: #feb101;
+                    background: #fff;
                 }
             }
         }
@@ -194,15 +210,133 @@
 
 aside.container
 {
-    display: none;
+    height: 100vh;
+    position: relative;
+    align-items: center;
+    padding: 4rem 4rem 1rem;
+    justify-content: space-between;
+
+    &::before
+    {
+        top: 0px;
+        z-index: -1;
+        left: 0px;
+        width: 50%;
+        content: "";
+        height: 100%;
+        position: absolute;
+        background: #ffb815;
+    }
+
+    
+
+
+    @media (max-width: 765px) {
+        grid-gap: 2rem;
+        padding: 4rem 2rem;
+        margin-block-end: 5rem;
+        grid-template-columns: 1fr;
+
+        &::before
+        {
+            display: none;
+        }
+    }
+
+    @media (max-width: 565px) {
+        padding: 8rem 2rem 2rem;
+    }
+
+    .legenda
+    {
+        max-width: 550px;
+        padding: 2rem 0;
+
+        @media (max-width: 765px)
+        {
+            width: unset;
+            text-align: center;
+        }
+
+        p
+        {
+            line-height: 1.4rem;
+        }
+        a
+        {
+            padding: 1rem;
+            color: #000;
+            font-weight: 900;
+            border-radius: 5px;
+            display: inline-block;
+            margin-block-start: 2rem;
+            outline: 2px solid #feb101;
+
+            &:hover
+            {
+                color: #fff;
+                background: #feb101;
+            }
+        }
+    }
+    .img
+    {
+        right: 2rem;
+        height: 400px;
+        padding: 0rem;
+        position: relative;
+
+        @media (max-width: 765px) {
+           right: unset;
+        }
+
+        img
+        {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
 }
 
+
+// 
+.section-empresa
+{
+    display: block;
+    padding: 8rem 4rem 2rem;
+
+
+    @media (max-width: 765px)
+    {
+        padding: 8rem 2rem 2rem;
+    }
+
+    div.descricao
+    {
+        columns: 2;
+        column-gap: 2rem;
+        padding: 3rem 0 0;
+        text-align: justify;
+        line-height: 1.6rem;
+
+        @media (max-width: 765px)
+        {
+            columns: 1;
+
+            p
+            {
+                margin: 0 0 1rem;
+            }
+        }
+    }
+}
 
 // 
 .section-sobre
 {
     display: block;
-    padding: 4rem 4rem 2rem;
+    padding: 8rem 4rem 2rem;
 
     @media (max-width: 765px) {
         padding: 4rem 2rem 0px;
@@ -272,10 +406,11 @@ aside.container
 .section-servicos
 {
     display: block;
-    padding: 4rem 4rem 3rem;
+    overflow: hidden;
+    padding: 7rem 4rem 3rem;
 
     @media (max-width: 765px) {
-        padding: 4rem 2rem 2rem;
+        padding: 7rem 2rem 2rem;
     }
     
     .section-servicos-lista
@@ -356,7 +491,7 @@ aside.container
 .section-eventos
 {
     display: grid;
-    padding: 6rem 4rem 3rem;
+    padding: 8rem 4rem 3rem;
     margin-block-start: 3rem;
 
     grid-template-columns: .6fr 1fr;
@@ -364,7 +499,7 @@ aside.container
 
     @media (max-width: 765px) {
         grid-gap: 2rem;
-        padding: 4rem 2rem 2rem;
+        padding: 8rem 2rem 2rem;
     }
 
     @media (max-width: 565px) {
@@ -458,37 +593,6 @@ aside.container
     }
 }
 
-// 
-.section-empresa
-{
-    display: block;
-    padding: 4rem 4rem 2rem;
-
-
-    @media (max-width: 765px)
-    {
-        padding: 4rem 2rem 2rem;
-    }
-
-    div.descricao
-    {
-        columns: 2;
-        column-gap: 2rem;
-        padding: 3rem 0 0;
-        text-align: justify;
-        line-height: 1.6rem;
-
-        @media (max-width: 765px)
-        {
-            columns: 1;
-
-            p
-            {
-                margin: 0 0 1rem;
-            }
-        }
-    }
-}
 
 
 .footer-index
