@@ -1,6 +1,7 @@
 let JQuery = (e)=> document.querySelector(e),
     pathIndex = JQuery(".button-on"),
     scrollElement = JQuery(".scrollTop"),
+    headerUlista = JQuery(".header-ul"),
     headerIndex = JQuery(".header-index"),
     headerButton = JQuery(".header-button"),
     ulLi = JQuery(".section-servicos-lista"),
@@ -65,7 +66,6 @@ scrollElement.addEventListener("click", function(e){
 
 headerButton.addEventListener("click", function(e){
     // menu
-    headerButton.classList.toggle("on");
-    alert("dsdsd");
-    // headerButton.classList.contains("on") == false ? pathIndex.setAttribute("d", "M4 6h16M4 12h16M4 18h16") : pathIndex.setAttribute("d", "M6 18L18 6M6 6l12 12");
+    headerUlista.classList.toggle("on");
+    headerUlista.classList.contains("on") == false ? pathIndex.setAttribute("d", "M4 6h16M4 12h16M4 18h16") : pathIndex.setAttribute("d", "M6 18L18 6M6 6l12 12");
 })
