@@ -44,8 +44,8 @@ function dispositivo(e) {
 
 // scroll
 addEventListener("scroll", function(e){
-    (e.target.scrollingElement.scrollTop >= 85) ? (scrollElement.classList.add("show")) : scrollElement.classList.remove("show");
-    (e.target.scrollingElement.scrollTop >= 85) ? headerIndex.classList.add("color") : headerIndex.classList.remove("color");
+    (e.target.scrollingElement.scrollTop >= 35) ? (scrollElement.classList.add("show")) : scrollElement.classList.remove("show");
+    (e.target.scrollingElement.scrollTop >= 35) ? headerIndex.classList.add("color") : headerIndex.classList.remove("color");
 
 
     if(headerUlista.classList.contains("on") == true)
